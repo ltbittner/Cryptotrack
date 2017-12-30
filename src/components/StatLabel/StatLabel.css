@@ -1,0 +1,9 @@
+.stat-label {
+  padding: 20px;
+}
+
+.stat-label p, .stat-label pre {
+  font-family: arial;
+  display: inline;
+  padding: 0
+}

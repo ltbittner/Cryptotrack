@@ -1,0 +1,59 @@
+.buy-row {
+  width: 100%;
+  margin: 20px;
+}
+
+.buy-row.odd .item {
+  background-color:  #888888
+}
+
+.buy-row.even .item {
+  background-color: #CCCCCC
+}
+
+.buy-row .item {
+  padding: 20px;
+  
+}
+
+.buy-row .item p {
+  margin: 0;
+  padding: 0
+}
+
+.buy-row .item.options p {
+  font-size: 12px;
+  padding: 2px 0;
+}
+
+.buy-row .item.options p:hover {
+  cursor: pointer;
+}
+
+.advanced-row {
+  background-color: #222222;
+  color: white;
+  font-size: 12px;
+} 
+
+.advanced-row td {
+  padding: 20px;
+}
+
+.advanced-row td p:nth-of-type(1) {
+  padding-left: 0 !important;
+}
+
+.advanced-row td p {
+  display: inline-block;
+  /* padding-left: 20px; */
+}
+
+.sell-row {
+
+}
+
+.sell-row td {
+  padding: 10px 0;
+  background-color: lightblue;
+}
