@@ -2,6 +2,12 @@
 
 
 ## Setup
+Start by installing dependancies.
+
+```node
+npm i
+```
+
 This app requires a Google Firestore instance to operate. (Free tier is fine)
 
 To set up a Firestore instance go to https://console.firebase.google.com and add a new project. The config of the instance doesn't matter.
@@ -18,11 +24,11 @@ npm run setup
 
 You will be prompted to enter the information displayed on the Firestore modal. Make sure all the information is correct.
 
-The script will create a Firestore config file for you in src/firestore, WHICH SHOULD NOT BE COMMITED to source control.
+The script will create a Firestore config file for you in src/firebase, WHICH SHOULD NOT BE COMMITED to source control.
 
 ## Running
 
-To start the local server, type 
+To start the local server, run
 
 ```node
 npm start
