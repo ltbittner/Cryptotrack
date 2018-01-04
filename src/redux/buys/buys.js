@@ -147,7 +147,7 @@ export const selectors = {
 
 
 
-const addBuy = ({ buyPrice, symbol, amount }) => async (dispatch, getState) => {
+const addBuy = ({ buyPrice, symbol, amount, sellTarget1, sellTarget2, sellTarget3 }) => async (dispatch, getState) => {
 
   const dispatchAction = (id) => {
     dispatch({
@@ -157,12 +157,15 @@ const addBuy = ({ buyPrice, symbol, amount }) => async (dispatch, getState) => {
         symbol,
         amount,
         id,
+        sellTarget1,
+        sellTarget2,
+        sellTarget3
       }
     })
   }
 
   await WriteActions.addBuy(
-    { buyPrice, symbol, amount },
+    { buyPrice, symbol, amount, sellTarget1, sellTarget2, sellTarget3 },
     dispatchAction
   )
 

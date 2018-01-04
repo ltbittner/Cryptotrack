@@ -31,7 +31,11 @@ class AddBuyModal extends React.Component {
     const buyPrice = this.$buyPrice.value;
     const amount = this.$amount.value;
 
-    this.props.onSubmit({ symbol, buyPrice, amount });
+    const sellTarget1 = this.$sellTargetOne.value;
+    const sellTarget2 = this.$sellTargetTwo.value;
+    const sellTarget3 = this.$sellTargetThree.value;
+
+    this.props.onSubmit({ symbol, buyPrice, amount, sellTarget1, sellTarget2, sellTarget3 });
   }
 
 
@@ -57,6 +61,20 @@ class AddBuyModal extends React.Component {
               <p>Buy Price (BTC)</p> <input ref={(ref) => { this.$buyPrice = ref }} type='text' />
             </div>
           </div>  
+
+          <div className='form-row'>
+            <div className='form-section'>
+              <p>Sell Target 1</p> <input ref={(ref) => { this.$sellTargetOne = ref }} type='text' />
+            </div>
+
+            <div className='form-section'>
+              <p>Sell Target 2</p> <input ref={(ref) => { this.$sellTargetTwo = ref }} type='text' />
+            </div>
+
+            <div className='form-section'>
+              <p>Sell Target 3</p> <input ref={(ref) => { this.$sellTargetThree = ref }} type='text' />
+            </div>
+          </div>
 
 
           <div className='form-row'>

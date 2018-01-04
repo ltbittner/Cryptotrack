@@ -16,6 +16,10 @@
   
 }
 
+.buy-row .item.symbol:hover {
+  cursor: pointer;
+}
+
 .buy-row .item p {
   margin: 0;
   padding: 0

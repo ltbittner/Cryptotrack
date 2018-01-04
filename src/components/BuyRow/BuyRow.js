@@ -58,6 +58,10 @@ class BuyRow extends React.Component {
     });
   }
 
+  toBittrex = () => {
+    window.open(`https://bittrex.com/Market/Index?MarketName=BTC-${this.props.buy.symbol}`);
+  }
+
   getAdvancedRow = () => {
     const { currentBTCPrice, buy } = this.props;
     const { buyPrice, initialAmount, amount } = this.props.buy;
@@ -89,6 +93,33 @@ class BuyRow extends React.Component {
             title={`Realized Profit/Loss (BTC)`}
             value={getRealizedProfit(buy)}
           />
+
+        
+          {
+            buy.sellTargets &&
+            <span>
+              <br />
+              <StatLabel
+                title={`Sell Target 1`}
+                value={buy.sellTargets.sellTarget1}
+                showColors={false}
+              />
+
+              <StatLabel
+                title={`Sell Target 2`}
+                value={buy.sellTargets.sellTarget2}
+                showColors={false}
+              />
+
+              <StatLabel
+                title={`Sell Target 3`}
+                value={buy.sellTargets.sellTarget3}
+                showColors={false}
+              />
+            </span>
+          }
+
+          
 
         </td>
       </tr>
@@ -149,7 +180,7 @@ class BuyRow extends React.Component {
     const main = (
       <tr className={`buy-row ${bg}`}>
         <td className='item symbol'>
-          <p>{this.props.buy.symbol}</p>
+          <span onClick={this.toBittrex}><p>{this.props.buy.symbol}</p></span>
         </td>  
         
         <td className='item amount'>

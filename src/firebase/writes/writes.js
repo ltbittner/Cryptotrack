@@ -1,8 +1,16 @@
 import { db } from '../db';
 
-export const addBuy = async ({ symbol, amount, buyPrice }, dispatch) => {
+export const addBuy = async ({ symbol, amount, buyPrice, sellTarget1 = '', sellTarget2 = '', sellTarget3 = '' }, dispatch) => {
   const docRef = await db.collection('buys').add({
-    symbol, amount, buyPrice, initialAmount: amount
+    symbol,
+    amount,
+    buyPrice,
+    initialAmount: amount,
+    sellTargets: {
+      sellTarget1,
+      sellTarget2,
+      sellTarget3
+    }
   });
 
   dispatch(docRef.id);
