@@ -17,6 +17,7 @@ class WatchList extends React.Component {
               <th>Symbol</th>
               <th>Buy Target</th>
               <th>Current Price</th>
+              <th>% Diff</th>
               <th>Options</th>
             </tr>
           </thead>

@@ -3,6 +3,8 @@ import './WatchRow.css';
 
 import {connect} from 'react-redux';
 
+import {getPercentDiff} from '../../utils/math';
+
 import {
   actions as WatchActions
 } from '../../redux/watches/watches';
@@ -24,6 +26,7 @@ class WatchRow extends React.Component {
         <td className='item symbol'>{ watch.symbol }</td>
         <td className='item target'>{ watch.buyTarget }</td>
         <td className='item currentPrice' style={{ backgroundColor }}>{ watch.currentPrice }</td>
+        <td className='item'>{getPercentDiff(watch.buyTarget, watch.currentPrice)}</td>
         <td className='item options'>
           <p onClick={this.deleteWatch}>Delete</p>
         </td>
