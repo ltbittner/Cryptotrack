@@ -28,7 +28,7 @@ export const updateCurrentPrices = () => async (dispatch, getState) => {
     return acc;
   }, {})
 
-  const allSymbols = allBuys.reduce((acc, watch) => {
+  const allSymbols = allWatches.reduce((acc, watch) => {
     acc[watch.symbol] = true;
     return acc;
   }, buySymbols);
