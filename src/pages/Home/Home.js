@@ -26,10 +26,7 @@ class Home extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.props.fetchBuys(() => {
-      setTimeout(this.props.updateCurrentPrices, 500)
-      setInterval(this.props.updateCurrentPrices, 10000)
-    });
+
   }
 
   
@@ -37,14 +34,7 @@ class Home extends React.PureComponent {
   render() {
     return (
       <div className='home'>
- 
-        <Header />       
-
-        <div className='divider' />
-
         <BuyList />
-
-        
       </div>
     )
   }
@@ -55,8 +45,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  fetchBuys: BuyActions.fetchBuys,
-  updateCurrentPrices: BuyActions.updateCurrentPrices,
   addBuy: BuyActions.addBuy
 };
 

@@ -1,0 +1,16 @@
+.watch-list {
+  max-width: 1000px;
+  margin: auto auto;
+  margin-top: 100px;
+  overflow-y: scroll;
+  padding-bottom: 100px;
+}
+
+.watch-list table {
+  width: 100%;
+}
+
+
+.watch-list table th {
+  text-align: left;
+}

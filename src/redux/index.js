@@ -3,13 +3,15 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger'
 
 import buys from './buys/buys';
-import sells from './sells/sells';
 import prices from './prices/prices';
+import nav from './nav/nav';
+import watches from './watches/watches';
 
 const reducer = combineReducers({
   buys,
-  sells,
-  prices
+  prices,
+  nav,
+  watches
 });
 
 const middleware = [

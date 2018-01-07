@@ -1,0 +1,35 @@
+.watch-row {
+  width: 100%;
+  margin: 20px;
+}
+
+.watch-row.odd .item {
+  background-color:  #888888
+}
+
+.watch-row.even .item {
+  background-color: #CCCCCC
+}
+
+.watch-row .item {
+  padding: 20px;
+  
+}
+
+.watch-row .item.symbol:hover {
+  cursor: pointer;
+}
+
+.watch-row .item p {
+  margin: 0;
+  padding: 0
+}
+
+.watch-row .item.options p {
+  font-size: 12px;
+  padding: 2px 0;
+}
+
+.watch-row .item.options p:hover {
+  cursor: pointer;
+}

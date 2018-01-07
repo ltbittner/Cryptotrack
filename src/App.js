@@ -5,8 +5,7 @@ import test from './firebase/writes/writes';
 import logo from './logo.svg';
 import store from './redux/index';
 import './App.css';
-import Home from './pages/Home/Home';
-import Footer from './components/Footer/Footer'
+import Root from './Root';
 
 import {
   actions as BuyActions
@@ -18,10 +17,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>  
-          <Home />
-          <Footer />
-        </div>  
+        <Root />
       </Provider>  
     );
   }

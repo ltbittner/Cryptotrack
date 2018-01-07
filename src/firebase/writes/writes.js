@@ -1,5 +1,13 @@
 import { db } from '../db';
 
+export const addWatch = async (params, dispatch) => {
+  const docRef = await db.collection('watches').add({
+    ...params
+  });
+
+  dispatch(docRef.id);
+}
+
 export const addBuy = async ({ symbol, amount, buyPrice, sellTarget1 = '', sellTarget2 = '', sellTarget3 = '' }, dispatch) => {
   const docRef = await db.collection('buys').add({
     symbol,
@@ -37,3 +45,8 @@ export const addSell = async ({ buyId, amount, sellPrice }, dispatch) => {
 export const deleteBuy = async (id) => {
   await db.collection('buys').doc(id).delete();
 }
+
+export const deleteWatch = async (id) => {
+  await db.collection('watches').doc(id).delete();
+}
+

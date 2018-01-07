@@ -1,0 +1,44 @@
+.modal-inner {
+  color: white;
+}
+
+.modal-inner .form-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-inner .form-section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.modal-inner .form-section p {
+  padding: 0;
+  margin: 0;
+}
+
+.modal-inner .form-section input {
+  flex-grow: 1;
+  height: 24px;
+  border-radius: 2px;
+  border: none;
+  margin-top: 4px;
+  max-height: 30px;
+}
+
+.modal-inner button {
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+}
+
+.modal-inner .percent {
+  width: 35px;
+  text-align: center;
+  margin: 0 5px;
+}

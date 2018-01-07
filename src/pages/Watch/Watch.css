@@ -1,0 +1,8 @@
+.watch-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FDFDFD;
+  position: absolute;
+  top: 0;
+  overflow-y: scroll;
+}

@@ -10,10 +10,14 @@ import {
   selectors as PriceSelectors
 } from '../prices/prices';
 
+import {
+  types as SharedTypes,
+  updateCurrentPrices
+} from '../shared';
+
 const types = {
   ADD_BUY: 'buys/ADD_BUY',
   ADD_BUYS: 'buys/ADD_BUYS',
-  UPDATE_PRICE: 'buys/UPDATE_PRICE',
   DELETE_BUY: 'buys/DELETE_BUY',
   ADD_SELL: 'buys/ADD_SELL'
 };
@@ -61,7 +65,7 @@ export default (state = initialState, action) => {
           buys: {...buys}
         };
       }  
-    case types.UPDATE_PRICE:
+    case SharedTypes.UPDATE_PRICE:
       {
         const { symbol, price } = payload;
         const { buys } = state;
@@ -210,35 +214,12 @@ const fetchBuys = (done) => async (dispatch) => {
     done();
   }
 
-  ReadActions.fetchBuys(dispatchAction);
-}
-
-const updateCurrentPrices = () => async (dispatch, getState) => {
-
-  dispatch(PriceActions.fetchBTCPrice());
-
-  const allBuys = getBuysAsArray(getState());
-  const symbols = allBuys.reduce((acc, buy) => {
-    acc[buy.symbol] = true;
-    return acc;
-  }, {})
-
-  Object.keys(symbols).forEach(async (symbol) => {
-    const price = await getCurrentPrice(symbol);
-    dispatch({
-      type: types.UPDATE_PRICE,
-      payload: {
-        symbol,
-        price
-      }
-    })
-  });
+  const buys = ReadActions.fetchBuys(dispatchAction);
 }
 
 export const actions = {
   addBuy,
   fetchBuys,
-  updateCurrentPrices,
   deleteBuy,
   sellBuy
 }

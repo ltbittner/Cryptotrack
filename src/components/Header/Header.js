@@ -3,14 +3,23 @@ import './Header.css';
 import { connect } from 'react-redux';
 
 import AddBuyModal from '../AddBuyModal/AddBuyModal';
+import AddWatchModal from '../AddWatchModal/AddWatchModal';
 
 import {
   actions as BuyActions
 } from '../../redux/buys/buys';
 
 import {
+  actions as WatchActions
+} from '../../redux/watches/watches';
+
+import {
   selectors as PriceSelectors
 } from '../../redux/prices/prices';
+
+import {
+  selectors as NavSelectors
+} from '../../redux/nav/nav';
 
 class Header extends React.Component {
 
@@ -18,8 +27,15 @@ class Header extends React.Component {
     super();
 
     this.state = {
-      addBuyModal: false
+      addBuyModal: false,
+      addWatchModal: false
     };
+  }
+
+  toggleAddWatch = () => {
+    this.setState({
+      addWatchModal: !this.state.addWatchModal
+    });
   }
 
   toggleAddBuy = () => {
@@ -33,13 +49,34 @@ class Header extends React.Component {
     this.toggleAddBuy();
   }
 
+  submitAddWatch = (data) => {
+    this.props.addWatch(data);
+    this.toggleAddWatch();
+  }
+
   render() {
     return (
       <div className='header'>
 
         <h2>Cryptowatch</h2>
 
-        <button onClick={this.toggleAddBuy}>Add Buy</button> 
+        {
+          this.props.currentTab === 'assets' &&
+          <button onClick={this.toggleAddBuy}>Add Buy</button> 
+        }
+
+        {
+          this.props.currentTab === 'watch' &&
+          <button onClick={this.toggleAddWatch}>Add Watch</button> 
+        }
+
+        <AddWatchModal
+          visible={this.state.addWatchModal}
+          onClose={this.toggleAddWatch}
+          onSubmit={this.submitAddWatch}
+ 
+        />
+        
         
         <AddBuyModal
           visible={this.state.addBuyModal}
@@ -54,11 +91,13 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentBTCPrice: PriceSelectors.getBTCPrice(state)
+  currentBTCPrice: PriceSelectors.getBTCPrice(state),
+  currentTab: NavSelectors.getCurrentTab(state)
 })
 
 const mapDispatchToProps = {
-  addBuy: BuyActions.addBuy
+  addBuy: BuyActions.addBuy,
+  addWatch: WatchActions.addWatch
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
