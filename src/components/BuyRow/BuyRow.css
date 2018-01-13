@@ -1,6 +1,8 @@
 .buy-row {
   width: 100%;
   margin: 20px;
+
+  
 }
 
 .buy-row.odd .item {
@@ -38,6 +40,9 @@
   background-color: #222222;
   color: white;
   font-size: 12px;
+  max-width: 1000px;
+  /* display: flex; */
+
 } 
 
 .advanced-row td {

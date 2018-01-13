@@ -5,7 +5,7 @@ import {
   actions as BuyActions,
   selectors as BuySelectors
 } from '../../redux/buys/buys';
-import { getPercentDiff, getChangeInBTCForSell, getUnrealizedProfit, getRealizedProfit } from '../../utils/math';
+import { getPercentDiff, getChangeInBTCForSell, getUnrealizedProfit, getRealizedProfit, BTCtoCAD } from '../../utils/math';
 
 import StatLabel from '../StatLabel/StatLabel';
 
@@ -68,6 +68,12 @@ class BuyRow extends React.Component {
 
     const totalBitCoinSpent = (buyPrice * amount).toFixed(6);
     const totalCADWorth = ((buyPrice * amount) * currentBTCPrice).toFixed(2);
+
+    const unrealizedProfit = getUnrealizedProfit(buy);
+
+    const unrealizedProfitCad = BTCtoCAD(unrealizedProfit, currentBTCPrice);
+
+
     return (
       <tr className='advanced-row'>
         <td colSpan='6'>
@@ -86,8 +92,16 @@ class BuyRow extends React.Component {
 
           <StatLabel
             title={`Unrealized Profit/Loss (BTC)`}
-            value={getUnrealizedProfit(buy)}
+            value={unrealizedProfit}
           />
+
+          <StatLabel
+            title={`Unrealized Profit/Loss (CAD)`}
+            value={unrealizedProfitCad}
+            prefix='$'
+          />
+
+        <br />
 
           <StatLabel
             title={`Realized Profit/Loss (BTC)`}
@@ -96,9 +110,9 @@ class BuyRow extends React.Component {
 
         
           {
-            buy.sellTargets &&
+            buy.sellTargets && buy.sellTargets.sellTarget1 &&
             <span>
-              <br />
+              
               <StatLabel
                 title={`Sell Target 1`}
                 value={buy.sellTargets.sellTarget1}

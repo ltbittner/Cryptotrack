@@ -2,6 +2,9 @@ export const getPercentDiff = (start, end) => {
   return (((end - start) / start) * 100).toFixed(2);
 }
 
+export const BTCtoCAD = (BTC, currentPrice) => {
+  return (BTC * currentPrice).toFixed(2);
+}
 
 export const getChangeInBTCForSell = (buy, sell) => {
   const { amount: amountSold, sellPrice, BTCPriceAtSell } = sell;
